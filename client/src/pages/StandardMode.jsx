@@ -15,6 +15,12 @@ const StandardMode = () => {
     const value = e.target.value;
     setUserInput(value);
   }
+  const resetInput = (e) => {
+    if (e.key == 'Escape'){
+      e.preventDefault();
+      setUserInput('');
+    }
+  }
 
   useEffect(() =>{
     focusInput()
@@ -25,12 +31,14 @@ const StandardMode = () => {
       {characters.map((char, index) => {
         const typedChar = userInput[index];
         let textColor = 'text-overlay0'; 
+        let missedSpace = '';
 
         if (index < userInput.length){
-          textColor = (typedChar === char ) ? 'text-green' : 'text-red';
-        }
+          textColor = (typedChar === char ) ? 'text-text' :(char === ' ' ? 'bg-red' : 'text-red');
+        } 
+        
         return (
-          <span className={`z-10 text-5xl text-center ${textColor}`} key={index}>
+          <span className={`z-10 text-5xl text-center ${textColor} ${missedSpace}`} key={index}>
             {char === ' '? '\u00A0' : char}
           </span>
         )
@@ -41,6 +49,7 @@ const StandardMode = () => {
         ref={inputRef}
         value={userInput}
         onChange={handleInputChange}
+        onKeyDown={resetInput}
         className='absolute inset-0 opacity-0 focus:outline-none'
         aria-label="hidden input"
       />
