@@ -7,6 +7,7 @@ const StandardMode = () => {
   const characters = text.split('');
 
   const [userInput, setUserInput] = useState('');
+  const [isTabActive, setIsTabActive] = useState(false);
   const inputRef = useRef(null);
 
   const focusInput = () => {
@@ -20,6 +21,16 @@ const StandardMode = () => {
     if (e.key === 'Escape'){
       e.preventDefault();
       setUserInput('');
+    }
+    if(e.key === 'Tab'){
+      e.preventDefault();
+      setIsTabActive(true);
+    }
+
+    if(e.key === 'Enter' && isTabActive){
+      e.preventDefault();
+      setUserInput('');
+      setIsTabActive(false);
     }
   }
 
