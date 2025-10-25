@@ -1,8 +1,9 @@
-import React from 'react'
-import { useEffect, useRef, useState } from 'react'
+import React from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Character from '../components/typing/Character';
 
 const StandardMode = () => {
-  const text = "The quick brown fox jumps over the lazy dog."
+  const text = "The quick brown fox jumps over the lazy dog.";
   const characters = text.split('');
 
   const [userInput, setUserInput] = useState('');
@@ -11,12 +12,12 @@ const StandardMode = () => {
   const focusInput = () => {
     inputRef.current?.focus()
   }
-  const handleInputChange = (e) => {  
+  const handleInputChange = (e) => {
     const value = e.target.value;
     setUserInput(value);
   }
   const resetInput = (e) => {
-    if (e.key == 'Escape'){
+    if (e.key === 'Escape'){
       e.preventDefault();
       setUserInput('');
     }
@@ -27,21 +28,25 @@ const StandardMode = () => {
   }, [])
 
   return (
-    <div className='w-screen h-screen flex items-center justify-center bg-base font-roboto-mono font-normal relative'>
+    <div
+      className='w-screen h-screen flex items-center justify-center bg-base font-roboto-mono font-normal relative'
+      onClick={focusInput}
+    >
       {characters.map((char, index) => {
+        let state = 'pending';
         const typedChar = userInput[index];
-        let textColor = 'text-overlay0'; 
-        let missedSpace = '';
 
-        if (index < userInput.length){
-          textColor = (typedChar === char ) ? 'text-text' :(char === ' ' ? 'bg-red' : 'text-red');
-        } 
-        
+        if (index < userInput.length) {
+          state = (typedChar === char) ? 'correct' : 'incorrect';
+        }
+
         return (
-          <span className={`z-10 text-5xl text-center ${textColor} ${missedSpace}`} key={index}>
-            {char === ' '? '\u00A0' : char}
-          </span>
-        )
+          <Character
+            key={index}
+            char={char}
+            state={state}
+          />
+        );
       })}
 
       <input
@@ -57,4 +62,5 @@ const StandardMode = () => {
   )
 }
 
-export default StandardMode
+export default StandardMode;
+
