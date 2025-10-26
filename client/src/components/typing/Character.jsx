@@ -14,7 +14,7 @@ const Character = ({ char, state }) => {
   }
 
   return (
-    <span className={`z-10 text-5xl text-center ${textColor}`}>
+    <span className={`z-10 text-7xl text-center ${textColor}`}>
       {displayChar}
     </span>
   );

@@ -4,7 +4,7 @@ import StandardMode from './pages/StandardMode'
 
 const App = () => {
   return (
-    <div className='w-screen h-screen flex justify-center items-center bg-base text-text font-roboto-mono font-normal'>
+    <div className='w-screen h-screen flex justify-center items-center bg-base '>
       <StandardMode />
     </div>
   )
