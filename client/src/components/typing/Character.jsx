@@ -1,21 +1,23 @@
 import React from 'react';
 
 const Character = ({ char, state }) => {
-  let textColor = 'text-overlay0';
-  const displayChar = (char === ' ') ? '\u00A0' : char;
+  let classes = 'z-10 text-7xl';
 
-  if (state === 'correct') {
-    textColor = 'text-text';
-  } else if (state === 'incorrect') {
-    if (char === ' ') {
-      return <span className="z-10 text-5xl bg-red">&nbsp;</span>;
+  if (char === '  ') {
+    if (state === 'incorrect') {
+      return <span className="inline-block w-6 h-8 bg-red align-middle mx-0.5" aria-hidden="true" />;
     }
-    textColor = 'text-red';
+  
+    return <span className="inline-block w-3 align-middle mx-0.5" aria-hidden="true">{' '}</span>;
   }
 
+  if (state === 'correct') classes += ' text-text';
+  else if (state === 'incorrect') classes += ' text-red';
+  else classes += ' text-overlay0';
+
   return (
-    <span className={`z-10 text-7xl text-center ${textColor}`}>
-      {displayChar}
+    <span className={classes}>
+      {char}
     </span>
   );
 };

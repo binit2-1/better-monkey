@@ -86,7 +86,7 @@ const StandardMode = () => {
             WPM: {wpm}
           </div>
       )}
-      <div className="w-full max-w-[90vw] flex flex-wrap justify-start gap-x-0.5 gap-y-10 relative">
+      <div className="w-full max-w-[90vw] whitespace-pre-wrap leading-25 relative">
         
 
         {characters.map((char, index) => {
