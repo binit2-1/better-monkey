@@ -14,7 +14,8 @@ const StandardMode = () => {
   const [startTime, setStartTime] = useState(null);
   const [wpm, setWpm] = useState(null);
   const [text, setText] = useState('');             
-  const [characters, setCharacters] = useState([]); 
+  const [characters, setCharacters] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   
   const inputRef = useRef(null);
 
@@ -39,6 +40,7 @@ const StandardMode = () => {
       const calculatedWpm = calculateWpm(text, value, startTime, endTime);
       setWpm(calculatedWpm);
       setIsTestActive(false);
+      setShowModal(true);
     }
 
     if(value.length <= characters.length){
@@ -49,6 +51,7 @@ const StandardMode = () => {
     setUserInput('');
     setIsTabActive(false);
     setIsTestActive(false);
+    setShowModal(false);
     setStartTime(null);
     setWpm(null);
   }
@@ -83,38 +86,43 @@ const StandardMode = () => {
       className='w-full h-full flex items-center justify-center bg-base font-roboto-mono font-normal overflow-auto'
       onClick={focusInput}
     >
-      {wpm !== null && (
+      {wpm !== null && showModal && (
           <div className="absolute top-1/4 text-5xl text-yellow">
             WPM: {wpm}
           </div>
       )}
-      <div className='absolute left-[50%] transform -translate-x-1/2 top-20 z-40'>
-          <MenuBar>
-            <MenuTab label="sentences mode" onClick={() => {}} active={isTabActive} />
-              <div className='absolute w-1 h-full bg-overlay0 mx-2' aria-hidden="true" />
-            <MenuTab label="random mode" onClick={() => {}} active={isTabActive} />
-          </MenuBar>
-      </div>
-      <div className="w-full max-w-[85vw] whitespace-pre-wrap  leading-25 relative">
-        
+      {!showModal && (
+        <>
+          <div className='absolute left-[50%] transform -translate-x-1/2 top-20 z-40'>
+            <MenuBar>
+              <MenuTab label="sentences mode" onClick={() => {}} active={isTabActive} />
+                <div className='absolute w-1 h-full bg-overlay0 mx-2' aria-hidden="true" />
+              <MenuTab label="random mode" onClick={() => {}} active={isTabActive} />
+            </MenuBar>
+          </div>
+          <div className="w-full max-w-[85vw] whitespace-pre-wrap  leading-25 relative">
+            
 
-        {characters.map((char, index) => {
-          let state = 'pending';
-          const typedChar = userInput[index];
+            {characters.map((char, index) => {
+              let state = 'pending';
+              const typedChar = userInput[index];
 
-          if (index < userInput.length) {
-            state = (typedChar === char) ? 'correct' : 'incorrect';
-          }
+              if (index < userInput.length) {
+                state = (typedChar === char) ? 'correct' : 'incorrect';
+              }
 
-          return (
-            <Character
-              key={index}
-              char={char}
-              state={state}
-            />
-          );
-        })}
-      </div>
+              return (
+                <Character
+                  key={index}
+                  char={char}
+                  state={state}
+                />
+              );
+            })}
+          </div>
+        </>
+      )}
+      
 
       <input
         type="text"
