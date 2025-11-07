@@ -1,12 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <div className='bg-crust h-full w-20 font-roboto-mono font-medium text-text text-4xl relative z-50'>
       <div className='grid grid-rows-[repeat(3,1fr)] h-full'>
         <Link to='/' className='w-full h-full group cursor-pointer relative overflow-hidden'>
-          <div className="absolute inset-0 bg-surface0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-right z-0" />
+          <div className={
+            `absolute inset-0 bg-surface0 transform transition-transform duration-300 ease-out origin-right z-0 ` +
+            `${location.pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`
+          } />
           <div className="relative z-10 w-full h-full flex items-center justify-center">
             <span className='pointer-events-none absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap'>
               STANDARD
@@ -15,7 +20,10 @@ const Navbar = () => {
         </Link>
 
         <Link to='/reference' className='w-full h-full group cursor-pointer relative overflow-hidden'>
-          <div className="absolute inset-0 bg-surface0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-right z-0" />
+          <div className={
+            `absolute inset-0 bg-surface0 transform transition-transform duration-300 ease-out origin-right z-0 ` +
+            `${location.pathname === '/reference' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`
+          } />
           <div className="relative z-10 w-full h-full flex items-center justify-center">
             <span className='pointer-events-none absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap'>
               REFERENCE
@@ -24,7 +32,10 @@ const Navbar = () => {
         </Link>
 
         <Link to='/audio' className='w-full h-full group cursor-pointer relative overflow-hidden'>
-          <div className="absolute inset-0 bg-surface0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-right z-0" />
+          <div className={
+            `absolute inset-0 bg-surface0 transform transition-transform duration-300 ease-out origin-right z-0 ` +
+            `${location.pathname === '/audio' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`
+          } />
           <div className="relative z-10 w-full h-full flex items-center justify-center">
             <span className='pointer-events-none absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap'>
               AUDIO

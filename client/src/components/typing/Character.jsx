@@ -3,12 +3,14 @@ import React from 'react';
 const Character = ({ char, state }) => {
   let classes = 'z-10 text-7xl';
 
-  if (char === '  ') {
+  if (char === ' ') {
+    // visual width = ~2 normal spaces using '2ch'
+    const spaceBase = 'inline-block w-[4ch] h-13  mx-0.5';
     if (state === 'incorrect') {
-      return <span className="inline-block w-6 h-8 bg-red align-middle mx-0.5" aria-hidden="true" />;
+      return <span className={`${spaceBase} bg-red`} aria-hidden="true" />;
     }
-  
-    return <span className="inline-block w-3 align-middle mx-0.5" aria-hidden="true">{' '}</span>;
+
+    return <span className={spaceBase} aria-hidden="true">{' '}</span>;
   }
 
   if (state === 'correct') classes += ' text-text';
