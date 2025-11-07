@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import Character from '../components/typing/Character';
 import { calculateWpm } from '../libs/analytics.js';
 import sentences from '../quotes/sentences.json'
+import MenuBar from '../components/MenuBar';
+import MenuTab from '../components/MenuTab';
 
 const StandardMode = () => {
   
@@ -86,6 +88,13 @@ const StandardMode = () => {
             WPM: {wpm}
           </div>
       )}
+      <div className='absolute left-[50%] transform -translate-x-1/2 top-20 z-40'>
+          <MenuBar>
+            <MenuTab label="sentences mode" onClick={() => {}} active={isTabActive} />
+              <div className='absolute w-1 h-full bg-overlay0 mx-2' aria-hidden="true" />
+            <MenuTab label="random mode" onClick={() => {}} active={isTabActive} />
+          </MenuBar>
+      </div>
       <div className="w-full max-w-[85vw] whitespace-pre-wrap  leading-25 relative">
         
 
