@@ -2,7 +2,7 @@ import React from 'react'
 
 const AudioMode = () => {
   return (
-    <div>AudioMode</div>
+    <div className='w-full h-full'>AudioMode</div>
   )
 }
 

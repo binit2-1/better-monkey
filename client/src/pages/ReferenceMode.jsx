@@ -2,7 +2,7 @@ import React from 'react'
 
 const ReferenceMode = () => {
   return (
-    <div>ReferenceMode</div>
+    <div className='w-full h-full'>ReferenceMode</div>
   )
 }
 
