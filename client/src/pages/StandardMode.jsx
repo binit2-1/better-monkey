@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Character from '../components/typing/Character';
-import { calculateWpm } from '../libs/analytics.js';
+import { calculateWpm, calculateAccuracy, calculateRawWpm } from '../libs/analytics.js';
 import sentences from '../quotes/sentences.json'
 import MenuBar from '../components/MenuBar';
 import MenuTab from '../components/MenuTab';
@@ -13,7 +13,9 @@ const StandardMode = () => {
   const [isTestActive, setIsTestActive] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [wpm, setWpm] = useState(null);
-  const [text, setText] = useState('');             
+  const [rawWpm, setRawWpm] = useState(null);
+  const [accuracy, setAccuracy] = useState(null);
+  const [text, setText] = useState('');
   const [characters, setCharacters] = useState([]);
   const [showModal, setShowModal] = useState(false);
   
@@ -38,6 +40,10 @@ const StandardMode = () => {
     if (characters.length > 0 && value.length === characters.length){
       const endTime = new Date();
       const calculatedWpm = calculateWpm(text, value, startTime, endTime);
+      const calculatedRawWpm = calculateRawWpm(value, startTime, endTime);
+      const calculatedAccuracy = calculateAccuracy(text, value);
+      setAccuracy(calculatedAccuracy);
+      setRawWpm(calculatedRawWpm);
       setWpm(calculatedWpm);
       setIsTestActive(false);
       setShowModal(true);
@@ -54,6 +60,10 @@ const StandardMode = () => {
     setShowModal(false);
     setStartTime(null);
     setWpm(null);
+    setRawWpm(null);
+    setAccuracy(null);
+    fetchText();
+    focusInput();
   }
   const handleKeyUp = (e) => {
     if (e.key == 'Tab'){
@@ -86,9 +96,9 @@ const StandardMode = () => {
       className='w-full h-full flex items-center justify-center bg-base font-roboto-mono font-normal overflow-auto'
       onClick={focusInput}
     >
-      {wpm !== null && showModal && (
-          <div className="absolute top-1/4 text-5xl text-yellow">
-            WPM: {wpm}
+      {wpm !== null && rawWpm !== null && accuracy !== null && showModal && (
+          <div className="absolute top-1/4 text-5xl text-yellow ">
+            WPM: {wpm} | Raw WPM: {rawWpm} | Accuracy: {accuracy}%
           </div>
       )}
       {!showModal && (
