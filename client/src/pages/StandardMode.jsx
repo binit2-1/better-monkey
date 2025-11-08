@@ -151,7 +151,7 @@ const StandardMode = () => {
               <MenuTab label="random mode" onClick={() => handleModeChange('random')} active={currentMode === 'random'} />
             </MenuBar>
           </div>
-          <div className="w-full max-w-[85vw] whitespace-pre-wrap  leading-25 relative">
+          <div className="w-full max-w-[85vw] whitespace-pre-wrap left-10 leading-25 relative">
             
 
             {characters.map((char, index) => {
