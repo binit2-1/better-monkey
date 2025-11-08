@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Character from '../components/typing/Character';
 import { calculateWpm, calculateAccuracy, calculateRawWpm } from '../libs/analytics.js';
-import sentences from '../quotes/sentences.json'
+import sentences from '../quotes/sentences.json';
+import wordsList from '../quotes/words.json';
 import MenuBar from '../components/MenuBar';
 import MenuTab from '../components/MenuTab';
 
@@ -18,16 +19,39 @@ const StandardMode = () => {
   const [text, setText] = useState('');
   const [characters, setCharacters] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [currentMode, setCurrentMode] = useState('sentences'); 
   
   const inputRef = useRef(null);
 
   const focusInput = () => {
     inputRef.current?.focus()
   }
-  const fetchText = () => {
-    const text = sentences.data[Math.floor(Math.random() * sentences.data.length)].sentence;
-    setText(text);
-    setCharacters(text.split(''));
+
+  const fetchText = (currentMode) => {
+    let newText = "";
+    if(currentMode === 'sentences'){
+      if(sentences && sentences.data && sentences.data.length > 0){
+        newText = sentences.data[Math.floor(Math.random() * sentences.data.length)].sentence;
+      } else {
+        newText = "The quick brown fox jumps over the lazy dog.";
+      }
+    } else if (currentMode === 'random') {
+      if(wordsList && wordsList.data && wordsList.data.length > 0){
+        const words = wordsList.data;
+        let randomWords = [];
+        for(let i = 0; i < 13; i++){
+          const randomIndex = Math.floor(Math.random() * words.length);
+          randomWords.push(words[randomIndex]);
+        }
+        newText = randomWords.join(' ');
+      } else {
+        newText = "The quick brown fox jumps over the lazy dog.";
+      }
+    } else {
+      newText = "The quick brown fox jumps over the lazy dog.";
+    }
+    setText(newText);
+    setCharacters(newText.split(''));
   }
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -62,9 +86,26 @@ const StandardMode = () => {
     setWpm(null);
     setRawWpm(null);
     setAccuracy(null);
-    fetchText();
+    fetchText(currentMode);
     focusInput();
   }
+
+  const handleModeChange = (newMode) => {
+    if (newMode === currentMode) return;
+
+    setCurrentMode(newMode);
+    setUserInput('');
+    setIsTabActive(false);
+    setIsTestActive(false);
+    setShowModal(false);
+    setStartTime(null);
+    setWpm(null);
+    setRawWpm(null);
+    setAccuracy(null);
+    fetchText(newMode);
+    focusInput();
+  }
+
   const handleKeyUp = (e) => {
     if (e.key == 'Tab'){
       setIsTabActive(false);
@@ -88,7 +129,7 @@ const StandardMode = () => {
 
   useEffect(() =>{
     focusInput()
-    fetchText()
+    fetchText(currentMode)
   }, [])
 
   return (
@@ -105,9 +146,9 @@ const StandardMode = () => {
         <>
           <div className='absolute left-[50%] transform -translate-x-1/2 top-20 z-40'>
             <MenuBar>
-              <MenuTab label="sentences mode" onClick={() => {}} active={isTabActive} />
+              <MenuTab label="sentences mode" onClick={() => handleModeChange('sentences')} active={currentMode === 'sentences'} />
                 <div className='absolute w-1 h-full bg-overlay0 mx-2' aria-hidden="true" />
-              <MenuTab label="random mode" onClick={() => {}} active={isTabActive} />
+              <MenuTab label="random mode" onClick={() => handleModeChange('random')} active={currentMode === 'random'} />
             </MenuBar>
           </div>
           <div className="w-full max-w-[85vw] whitespace-pre-wrap  leading-25 relative">
