@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Character from '../components/typing/Character';
+import Caret from '../components/typing/Caret';
 import { calculateWpm, calculateAccuracy, calculateRawWpm } from '../libs/analytics.js';
 import sentences from '../quotes/sentences.json';
 import wordsList from '../quotes/words.json';
@@ -126,6 +127,7 @@ const StandardMode = () => {
       resetTest();
     }
   }
+  
 
   useEffect(() =>{
     focusInput()
@@ -153,38 +155,40 @@ const StandardMode = () => {
           </div>
           <div className="w-full max-w-[85vw] whitespace-pre-wrap left-10 leading-25 relative">
             
-
+          
             {characters.map((char, index) => {
-              let state = 'pending';
-              const typedChar = userInput[index];
-
-              if (index < userInput.length) {
-                state = (typedChar === char) ? 'correct' : 'incorrect';
-              }
-
-              return (
-                <Character
-                  key={index}
-                  char={char}
-                  state={state}
-                />
-              );
-            })}
+               let state = 'pending';
+               const typedChar = userInput[index];
+ 
+               if (index < userInput.length) {
+                 state = (typedChar === char) ? 'correct' : 'incorrect';
+               }
+ 
+               return (
+                 <Character
+                   key={index}
+                   char={char}
+                   state={state}
+                   isCursorHere={index === userInput.length}
+                 />
+               );
+             })}          
           </div>
+          
         </>
       )}
       
 
       <input
-        type="text"
-        ref={inputRef}
-        value={userInput}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        onKeyUp={handleKeyUp}
-        className='absolute inset-0 opacity-0 focus:outline-none'
-        aria-label="hidden input"
-      />
+         type="text"
+         ref={inputRef}
+         value={userInput}
+         onChange={handleInputChange}
+         onKeyDown={handleKeyDown}
+         onKeyUp={handleKeyUp}
+         className='absolute inset-0 opacity-0 focus:outline-none'
+         aria-label="hidden input"
+       />
     </div>
   )
 }
