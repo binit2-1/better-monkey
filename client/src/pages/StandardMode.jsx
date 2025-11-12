@@ -1,10 +1,9 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Character from '../components/typing/Character';
-import Caret from '../components/typing/Caret';
 import { calculateWpm, calculateAccuracy, calculateRawWpm } from '../libs/analytics.js';
-import sentences from '../quotes/sentences.json';
-import wordsList from '../quotes/words.json';
+import sentences from '../quotes/standard/sentences.json';
+import wordsList from '../quotes/standard/words.json';
 import MenuBar from '../components/MenuBar';
 import MenuTab from '../components/MenuTab';
 
@@ -136,7 +135,7 @@ const StandardMode = () => {
 
   return (
     <div
-      className='w-full h-full flex items-center justify-center bg-base font-roboto-mono font-normal overflow-auto'
+      className='w-full h-full flex items-center justify-center  font-roboto-mono font-normal '
       onClick={focusInput}
     >
       {wpm !== null && rawWpm !== null && accuracy !== null && showModal && (
