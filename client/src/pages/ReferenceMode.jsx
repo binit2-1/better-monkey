@@ -67,7 +67,7 @@ const ReferenceMode = () => {
 
   return (
     <div
-      className="w-full h-full flex items-center justify-center  font-roboto-mono font-normal "
+      className="w-full h-full flex items-center justify-center font-roboto-mono font-normal "
       onClick={focusInput}
     >
       <div className="absolute left-[50%] transform -translate-x-1/2 top-20 z-40">
@@ -88,9 +88,9 @@ const ReferenceMode = () => {
           />
         </MenuBar>
       </div>
-      <div className="flex flex-rows">
-        <div className="w-full max-w-[85vw] whitespace-pre-wrap left-10 leading-25 relative">
-            
+      <div className="flex flex-rows text-[2px] gap-60 font-roboto-mono font-normal">
+        <div className="absolute text-4xl text-text left-57 top-43"> Reference text </div>
+        <div className="w-full max-w-[70vw] whitespace-pre-wrap left-10 leading-25 relative border-4 border-overlay1 rounded-xl p-6">
           
             {characters.map((char, index) => {
                let state = 'pending';
@@ -106,9 +106,13 @@ const ReferenceMode = () => {
                    char={char}
                    state={state}
                    isCursorHere={index === userInput.length}
+                   fontSize="text-lg"
                  />
                );
              })}          
+          </div>
+          <div className="absolute text-4xl text-text left-296 top-43"> Type here </div>
+          <div className="w-full max-w-[70vw] whitespace-pre-wrap left-10 leading-25 relative border-4 border-overlay1 rounded-xl p-6">
           </div>
       </div>
     </div>

@@ -56,8 +56,8 @@ const CaretForSpace = () => {
   );
 };
 
-const Character = ({ char, state, isCursorHere }) => {
-  let classes = "z-10 text-7xl";
+const Character = ({ char, state, isCursorHere, fontSize = "text-7xl" }) => {
+  let classes = `z-10 ${fontSize}`;
 
   if (char === " ") {
     const spaceBase = "inline-block relative rounded-[50%] w-8 h-8 mx-3";
