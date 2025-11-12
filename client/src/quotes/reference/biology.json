@@ -1,0 +1,490 @@
+{
+  "data": [
+    {
+      "sentence": "Mitochondria produce ATP through oxidative phosphorylation in response to cellular energy demands."
+    },
+    {
+      "sentence": "The nucleus contains chromatin, which is composed of DNA wrapped around histone proteins."
+    },
+    {
+      "sentence": "Neurons transmit signals via action potentials that travel down axons to synaptic terminals."
+    },
+    {
+      "sentence": "The immune system deploys neutrophils and macrophages to clear bacterial infections in tissues."
+    },
+    {
+      "sentence": "Hemoglobin within erythrocytes binds oxygen reversibly as blood circulates through the lungs and body."
+    },
+    {
+      "sentence": "Apoptosis is a form of programmed cell death that removes damaged or unneeded cells during development."
+    },
+    {
+      "sentence": "Polymerase chain reaction amplifies specific DNA sequences for downstream sequencing or diagnostics."
+    },
+    {
+      "sentence": "The glomerulus filters plasma to form the primary urine at the beginning of the nephron."
+    },
+    {
+      "sentence": "Antibodies recognize antigens and mediate neutralization, opsonization, or complement activation."
+    },
+    {
+      "sentence": "Enzymes lower activation energy and accelerate biochemical reactions in metabolic pathways."
+    },
+    {
+      "sentence": "The bacterial cell wall contains peptidoglycan, which provides structural support and shape."
+    },
+    {
+      "sentence": "Mitosis ensures equal segregation of sister chromatids into two daughter cells during division."
+    },
+    {
+      "sentence": "The Golgi apparatus modifies proteins and sorts them into vesicles for secretion or delivery."
+    },
+    {
+      "sentence": "Synaptic plasticity underlies learning and memory by changing the strength of neuronal connections."
+    },
+    {
+      "sentence": "Osmosis drives water movement across semipermeable membranes following solute gradients."
+    },
+    {
+      "sentence": "Pathogens can evade host immunity by antigenic variation or by inhibiting antigen presentation."
+    },
+    {
+      "sentence": "The hypothalamus regulates homeostasis through endocrine signaling and autonomic outputs."
+    },
+    {
+      "sentence": "RNA splicing removes introns and joins exons to generate mature messenger RNA transcripts."
+    },
+    {
+      "sentence": "Cancer can arise from mutations in proto-oncogenes or loss of tumor suppressor gene function."
+    },
+    {
+      "sentence": "The pulmonary alveoli maximize surface area to facilitate rapid gas exchange with capillaries."
+    },
+    {
+      "sentence": "Antibiotic stewardship reduces selective pressure that drives emergence of resistant bacterial strains."
+    },
+    {
+      "sentence": "Photosynthesis converts light energy into chemical energy stored in sugars by chloroplasts."
+    },
+    {
+      "sentence": "T cells recognize peptide antigens presented on MHC molecules and orchestrate adaptive responses."
+    },
+    {
+      "sentence": "Insulin signaling promotes glucose uptake into muscle and adipose tissue after a meal."
+    },
+    {
+      "sentence": "The endoplasmic reticulum is studded with ribosomes when synthesizing secreted and membrane proteins."
+    },
+    {
+      "sentence": "Cell membranes are organized into lipid bilayers with embedded integral and peripheral proteins."
+    },
+    {
+      "sentence": "Vaccination primes the immune system to produce memory B cells and long-lived plasma cells."
+    },
+    {
+      "sentence": "DNA repair mechanisms correct replication errors to maintain genomic stability and prevent disease."
+    },
+    {
+      "sentence": "The liver performs detoxification, bile production, glycogen storage, and metabolic regulation."
+    },
+    {
+      "sentence": "Platelet aggregation initiates clot formation to prevent hemorrhage after vascular injury."
+    },
+    {
+      "sentence": "Axonal transport moves organelles and vesicles between the soma and distant synapses using motor proteins."
+    },
+    {
+      "sentence": "Gram staining differentiates bacteria with thick peptidoglycan walls from those with outer membranes."
+    },
+    {
+      "sentence": "Stem cells can self-renew and differentiate into multiple specialized cell lineages under appropriate cues."
+    },
+    {
+      "sentence": "The circadian clock coordinates physiological processes across the daily light–dark cycle."
+    },
+    {
+      "sentence": "Receptor-mediated endocytosis internalizes specific ligands bound to cell-surface receptors."
+    },
+    {
+      "sentence": "Cytokines are signaling proteins that mediate communication between immune cells during inflammation."
+    },
+    {
+      "sentence": "The blood–brain barrier tightly regulates molecular exchange between the circulation and the CNS."
+    },
+    {
+      "sentence": "Metabolic pathways are linked through shared intermediates that allow flexibility in fuel utilization."
+    },
+    {
+      "sentence": "Anatomical dissection reveals spatial relationships between organs and their vascular supply."
+    },
+    {
+      "sentence": "Oxidative stress results from an imbalance between reactive oxygen species and antioxidant defenses."
+    },
+    {
+      "sentence": "Microbiota in the gut influence digestion, immune development, and host metabolism through metabolites."
+    },
+    {
+      "sentence": "Electrophoresis separates DNA fragments by size for analysis after restriction enzyme digestion."
+    },
+    {
+      "sentence": "Hemostasis is rapidly initiated after injury and later resolved by fibrinolysis to restore flow."
+    },
+    {
+      "sentence": "The lymphatic system returns interstitial fluid to the bloodstream and transports immune cells."
+    },
+    {
+      "sentence": "Transcription factors bind regulatory DNA elements to control gene expression programs in cells."
+    },
+    {
+      "sentence": "Protein folding in the ER is assisted by chaperones; misfolded proteins are targeted for degradation."
+    },
+    {
+      "sentence": "Endothelial cells line blood vessels and regulate permeability, inflammation, and vascular tone."
+    },
+    {
+      "sentence": "Mutations in mitochondrial DNA can impair oxidative phosphorylation and cause metabolic disease."
+    },
+    {
+      "sentence": "The sensory epithelium transduces mechanical or chemical stimuli into electrical signals interpreted by the brain."
+    },
+    {
+      "sentence": "Genetic recombination during meiosis increases diversity in gametes through crossover events."
+    },
+    {
+      "sentence": "pH and temperature profoundly affect enzyme activity and the rates of biochemical reactions."
+    },
+    {
+      "sentence": "Biofilms protect microbial communities from antibiotics and host immune responses on implanted devices."
+    },
+    {
+      "sentence": "Chronic inflammation contributes to fibrosis by stimulating fibroblast proliferation and extracellular matrix deposition."
+    },
+    {
+      "sentence": "The sympathetic nervous system increases heart rate and contractility during the fight-or-flight response."
+    },
+    {
+      "sentence": "Hormone receptors trigger intracellular second-messenger cascades to amplify extracellular signals."
+    },
+    {
+      "sentence": "The hypothalamic–pituitary axis integrates endocrine signals that regulate growth, reproduction, and metabolism."
+    },
+    {
+      "sentence": "Clonal selection explains how B cells with high-affinity receptors are preferentially expanded after antigen exposure."
+    },
+    {
+      "sentence": "The sarcomere is the smallest contractile unit in skeletal muscle composed of actin and myosin filaments."
+    },
+    {
+      "sentence": "Adaptive immunity provides specificity and memory that protect the host against previously encountered pathogens."
+    },
+    {
+      "sentence": "The complement cascade tags microbes for clearance and can directly lyse susceptible bacterial cells."
+    },
+    {
+      "sentence": "Electrolyte imbalances such as hyponatremia can cause neurological symptoms from cerebral edema."
+    },
+    {
+      "sentence": "PCR-based diagnostics detect pathogen nucleic acids with high sensitivity and specificity in clinical samples."
+    },
+    {
+      "sentence": "Antigen-presenting cells process protein antigens and display peptides bound to MHC for T cell recognition."
+    },
+    {
+      "sentence": "The extracellular matrix provides structural support and biochemical signals that influence cell behavior."
+    },
+    {
+      "sentence": "Insulin resistance impairs glucose uptake, promoting hyperglycemia and metabolic syndrome over time."
+    },
+    {
+      "sentence": "Bacterial conjugation transfers plasmids carrying antibiotic-resistance genes between cells under selective pressure."
+    },
+    {
+      "sentence": "The sinoatrial node acts as the primary pacemaker that initiates each cardiac cycle through spontaneous depolarization."
+    },
+    {
+      "sentence": "Autonomic reflexes maintain blood pressure during postural changes by adjusting vascular resistance."
+    },
+    {
+      "sentence": "Cytoskeletal elements like microtubules and actin filaments determine cell shape and enable motility."
+    },
+    {
+      "sentence": "Histological staining reveals cellular morphology and can help identify pathologic changes in tissue samples."
+    },
+    {
+      "sentence": "Pharmacokinetics describes how the body absorbs, distributes, metabolizes, and eliminates a drug."
+    },
+    {
+      "sentence": "Horizontal gene transfer can spread metabolic capabilities between environmental microbial species rapidly."
+    },
+    {
+      "sentence": "The retina contains photoreceptors that transduce light into neural signals sent to visual cortex."
+    },
+    {
+      "sentence": "Sepsis is a dysregulated host response to infection that can lead to organ dysfunction and shock."
+    },
+    {
+      "sentence": "The conduction system of the heart ensures coordinated atrial and ventricular contractions for efficient output."
+    },
+    {
+      "sentence": "Osmoregulation keeps plasma osmolarity within a narrow range through renal handling of water and solutes."
+    },
+    {
+      "sentence": "The pulmonary surfactant reduces surface tension to prevent alveolar collapse during respiration."
+    },
+    {
+      "sentence": "Molecular chaperones assist nascent polypeptides to reach their functional three-dimensional conformations."
+    },
+    {
+      "sentence": "Adaptive thermogenesis adjusts metabolic heat production in brown adipose tissue in response to cold exposure."
+    },
+    {
+      "sentence": "Horizontal transmission of viruses in a population depends on contact patterns and viral shedding dynamics."
+    },
+    {
+      "sentence": "The baroreceptor reflex buffers acute changes in arterial pressure by modulating heart rate and vascular tone."
+    },
+    {
+      "sentence": "Lipid rafts are microdomains enriched in cholesterol and sphingolipids that concentrate signaling molecules."
+    },
+    {
+      "sentence": "Epigenetic modifications like DNA methylation regulate gene expression without altering the nucleotide sequence."
+    },
+    {
+      "sentence": "The thymus is essential for the maturation of T lymphocytes and establishment of central tolerance."
+    },
+    {
+      "sentence": "Electrocardiography records the electrical activity of the heart and helps diagnose arrhythmias and ischemia."
+    },
+    {
+      "sentence": "Bioinformatic pipelines align sequencing reads to reference genomes and call genetic variants for analysis."
+    },
+    {
+      "sentence": "The renin–angiotensin system modulates blood volume and systemic vascular resistance to maintain perfusion."
+    },
+    {
+      "sentence": "Hematoxylin and eosin staining highlights nuclei and cytoplasm enabling routine pathological assessment."
+    },
+    {
+      "sentence": "An imbalance in pro- and anti-inflammatory mediators can determine whether tissue injury resolves or progresses."
+    },
+    {
+      "sentence": "The dendritic cell migrates from peripheral tissues to lymph nodes to prime naive T cells upon infection."
+    },
+    {
+      "sentence": "Viral latency allows some pathogens to persist in host cells and reactivate when immunity wanes."
+    },
+    {
+      "sentence": "Ischemia deprives tissues of oxygen and nutrients, eventually causing cellular dysfunction and necrosis if prolonged."
+    },
+    {
+      "sentence": "Germ-line mutations are heritable changes that can predispose individuals to inherited syndromes and cancers."
+    },
+    {
+      "sentence": "Cellular senescence halts proliferation and secretes inflammatory factors that alter the tissue microenvironment."
+    },
+    {
+      "sentence": "Proteomics uses mass spectrometry to quantify thousands of proteins and study cellular responses to perturbations."
+    },
+    {
+      "sentence": "The sinoatrial impulse propagates through the atria to the atrioventricular node before ventricular conduction."
+    },
+    {
+      "sentence": "MicroRNA molecules post-transcriptionally regulate gene expression by binding complementary mRNA sequences."
+    },
+    {
+      "sentence": "The microbiome composition can influence drug metabolism and patient responses to therapies."
+    },
+    {
+      "sentence": "Hypoxia-inducible factors drive transcriptional programs that adapt cells to low-oxygen environments."
+    },
+    {
+      "sentence": "The peritoneal cavity contains serous fluid that lubricates visceral surfaces and permits organ movement."
+    },
+    {
+      "sentence": "Clotting cascades converge to produce thrombin, which converts fibrinogen into stabilizing fibrin polymers."
+    },
+    {
+      "sentence": "Somatic hypermutation increases antibody affinity during germinal center reactions following immunization."
+    },
+    {
+      "sentence": "The vestibular system detects head movement and orientation, supporting balance and gaze stabilization."
+    },
+    {
+      "sentence": "Nanopore sequencing reads native DNA strands in real time and can detect base modifications directly."
+    },
+    {
+      "sentence": "Cardiac output equals stroke volume multiplied by heart rate and determines systemic blood flow."
+    },
+    {
+      "sentence": "The erythrocyte membrane maintains deformability to traverse narrow capillaries without hemolysis."
+    },
+    {
+      "sentence": "In clinical microbiology, culture isolation and susceptibility testing guide targeted antimicrobial therapy."
+    },
+    {
+      "sentence": "The integumentary system provides a barrier to pathogens and participates in thermoregulation and sensation."
+    },
+    {
+      "sentence": "RNA interference can silence gene expression by guiding endonucleases to complementary transcripts."
+    },
+    {
+      "sentence": "Autocrine, paracrine, and endocrine signaling differ by the spatial range over which molecules act."
+    },
+    {
+      "sentence": "The anterior pituitary secretes hormones that regulate peripheral endocrine glands such as the thyroid and adrenals."
+    },
+    {
+      "sentence": "The complement of chromosomes in human somatic cells is diploid with 46 total chromosomes in most cells."
+    },
+    {
+      "sentence": "Molecular diagnostics increasingly enable rapid pathogen detection at the point of care to guide therapy."
+    },
+    {
+      "sentence": "The extracellular pH of tumours can be acidic due to altered metabolism and hypoxic microenvironments."
+    },
+    {
+      "sentence": "Centrifugation separates blood components to obtain plasma, serum, or cellular fractions for assays."
+    },
+    {
+      "sentence": "Signal transduction pathways frequently use phosphorylation cascades to transmit and regulate signals."
+    },
+    {
+      "sentence": "The epidermis renews continuously via proliferation of basal keratinocytes that differentiate as they migrate outward."
+    },
+    {
+      "sentence": "Vaccine adjuvants enhance immune responses by promoting antigen uptake and inflammatory signaling at the injection site."
+    },
+    {
+      "sentence": "Molecular cloning inserts DNA fragments into vectors for propagation and expression in host cells for study."
+    },
+    {
+      "sentence": "Influenza viruses undergo antigenic drift and shift, necessitating periodic vaccine updates to maintain protection."
+    },
+    {
+      "sentence": "The pulmonary capillary network closely apposes alveoli to minimize diffusion distance for gases."
+    },
+    {
+      "sentence": "Biochemical assays measure enzyme kinetics to determine Vmax and Km for substrate conversion."
+    },
+    {
+      "sentence": "Oxidative phosphorylation efficiency declines with mitochondrial dysfunction and can contribute to fatigue."
+    },
+    {
+      "sentence": "The enteric nervous system autonomously controls gastrointestinal motility and secretory functions locally."
+    },
+    {
+      "sentence": "Sterile technique in the operating room prevents contamination and reduces postoperative infection risk."
+    },
+    {
+      "sentence": "The sinoatrial node's pacemaking activity depends on funny currents and calcium cycling within nodal cells."
+    },
+    {
+      "sentence": "Epistasis occurs when the effect of one gene is modified by one or more other genes in the genome."
+    },
+    {
+      "sentence": "Molecular epidemiology tracks pathogen transmission by comparing genetic sequences between isolates."
+    },
+    {
+      "sentence": "Apical–basal polarity of epithelial cells organizes tissue architecture and directional transport of solutes."
+    },
+    {
+      "sentence": "Antigenic epitopes may be linear or conformational, affecting how antibodies recognize target proteins."
+    },
+    {
+      "sentence": "Homeostatic setpoints are defended by negative-feedback loops that minimize deviations from physiological norms."
+    },
+    {
+      "sentence": "The cardiac action potential has distinct phases mediated by specific ion channel openings and closings."
+    },
+    {
+      "sentence": "Cell–cell adhesion molecules like cadherins and integrins mediate tissue cohesion and signaling."
+    },
+    {
+      "sentence": "Bioreactors control environmental conditions to culture cells at scale for biopharmaceutical production."
+    },
+    {
+      "sentence": "Oxidative DNA damage can produce mutagenic lesions if not repaired by base-excision pathways."
+    },
+    {
+      "sentence": "Phage therapy exploits bacteriophages to selectively kill antibiotic-resistant bacterial pathogens."
+    },
+    {
+      "sentence": "The hepatic portal vein delivers nutrient-rich blood from the gastrointestinal tract to the liver for processing."
+    },
+    {
+      "sentence": "Thermoreceptors sense temperature changes and trigger behavioral and physiological responses to maintain balance."
+    },
+    {
+      "sentence": "Biosafety protocols ensure safe handling of infectious agents in laboratory and clinical settings."
+    },
+    {
+      "sentence": "Graft-versus-host disease occurs when donor immune cells attack host tissues after transplantation."
+    },
+    {
+      "sentence": "The sinoatrial node, atrioventricular node, and Purkinje fibers coordinate the heart's electrical conduction system."
+    },
+    {
+      "sentence": "Oxygen–hemoglobin dissociation curves shift with pH and temperature according to the Bohr effect."
+    },
+    {
+      "sentence": "Metagenomic sequencing can profile microbial communities without prior cultivation of organisms."
+    },
+    {
+      "sentence": "Neurotransmitter release is triggered by calcium influx at presynaptic terminals following depolarization."
+    },
+    {
+      "sentence": "The cohort study followed participants longitudinally to measure incidence and risk factors for disease."
+    },
+    {
+      "sentence": "Somatic cell nuclear transfer can reprogram a differentiated nucleus to a totipotent state under lab conditions."
+    },
+    {
+      "sentence": "Lipid metabolism disorders disrupt membrane composition and energy homeostasis leading to systemic effects."
+    },
+    {
+      "sentence": "The myelin sheath increases conduction velocity by insulating axons and enabling saltatory conduction."
+    },
+    {
+      "sentence": "Imaging modalities such as MRI and CT provide complementary soft-tissue contrast and anatomical detail."
+    },
+    {
+      "sentence": "The placental barrier regulates nutrient and gas exchange while protecting the fetus from some maternal pathogens."
+    },
+    {
+      "sentence": "Quantitative PCR enables precise estimation of nucleic acid abundance by measuring fluorescence each cycle."
+    },
+    {
+      "sentence": "The renal tubule reabsorbs glucose and electrolytes selectively to conserve nutrients and maintain balance."
+    },
+    {
+      "sentence": "Photoreceptor cells adapt to ambient light levels by modulating photopigment regeneration and sensitivity."
+    },
+    {
+      "sentence": "Molecular controllers like repressors and activators tune transcriptional output in response to signals."
+    },
+    {
+      "sentence": "The extracellular matrix stiffness influences stem cell fate decisions through mechanotransduction pathways."
+    },
+    {
+      "sentence": "Isolating monoclonal antibodies from B cells allows development of targeted biologic therapies for disease."
+    },
+    {
+      "sentence": "Chronic exposure to toxins can lead to carcinogenesis by inducing DNA damage and epigenetic changes."
+    },
+    {
+      "sentence": "The heart remodels structurally in response to pressure overload, altering ventricular geometry and function."
+    },
+    {
+      "sentence": "Developmental biology explores how gradients of morphogens pattern tissues during embryogenesis."
+    },
+    {
+      "sentence": "Hemodynamic forces shape vascular development by influencing endothelial cell alignment and gene expression."
+    },
+    {
+      "sentence": "The adaptive immune response includes clonal expansion and differentiation of effector lymphocytes after priming."
+    },
+    {
+      "sentence": "Cross-reactivity can occur when antibodies raised against one antigen bind structurally similar epitopes on another."
+    }
+  ]
+}
