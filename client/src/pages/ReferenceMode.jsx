@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { calculateWpm, calculateAccuracy, calculateRawWpm } from "../libs/analytics.js";
+import Character from "../components/typing/Character";
 import normalSentences from "../quotes/reference/normal.json";
 import biologySentences from "../quotes/reference/biology.json";
 import MenuBar from "../components/MenuBar";
@@ -47,9 +48,20 @@ const ReferenceMode = () => {
   const handleModeChange = (newMode) => {
     if (newMode === currentMode) return;
     setCurrentMode(newMode);
+    setUserInput('');
+    setIsTabActive(false);
+    setIsTestActive(false);
+    setShowModal(false);
+    setStartTime(null);
+    setWpm(null);
+    setRawWpm(null);
+    setAccuracy(null);
+    fetchText(newMode);
+    focusInput();
   };
 
   useEffect(() => {
+    fetchText(currentMode);
     focusInput();
   }, []);
 
@@ -75,6 +87,29 @@ const ReferenceMode = () => {
             active={currentMode === "biology"}
           />
         </MenuBar>
+      </div>
+      <div className="flex flex-rows">
+        <div className="w-full max-w-[85vw] whitespace-pre-wrap left-10 leading-25 relative">
+            
+          
+            {characters.map((char, index) => {
+               let state = 'pending';
+               const typedChar = userInput[index];
+ 
+               if (index < userInput.length) {
+                 state = (typedChar === char) ? 'correct' : 'incorrect';
+               }
+ 
+               return (
+                 <Character
+                   key={index}
+                   char={char}
+                   state={state}
+                   isCursorHere={index === userInput.length}
+                 />
+               );
+             })}          
+          </div>
       </div>
     </div>
   );
