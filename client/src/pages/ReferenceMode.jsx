@@ -23,24 +23,26 @@ const ReferenceMode = () => {
     inputRef.current?.focus();
   };
 
-  const fetchText = (currentMode) =>{
+  const fetchText = (currentMode) => {
     let newText = "";
-    if(currentMode === "normal"){
-      if(normalSentences && normalSentences.data && normalSentences.data.length > 0){
-        newText = normalSentences.date[Math.floor(Math.random() * normalSentences.data.length)].sentence;
+    if (currentMode === "normal") {
+      if (normalSentences && normalSentences.data && normalSentences.data.length > 0) {
+        newText = normalSentences.data[Math.floor(Math.random() * normalSentences.data.length)].sentence;
       } else {
         newText = "The quick brown fox jumps over the lazy dog.";
       }
-    if(currentMode === "biology"){
-      if(biologySentences && biologySentences.data && biologySentences.data.length > 0){
-        newText = biologySentences.date[Math.floor(Math.random() * biologySentences.data.length)].sentence;
+    } else if (currentMode === "biology") {
+      if (biologySentences && biologySentences.data && biologySentences.data.length > 0) {
+        newText = biologySentences.data[Math.floor(Math.random() * biologySentences.data.length)].sentence;
       } else {
         newText = "The mitochondria is the powerhouse of the cell.";
       }
+    } else {
+      newText = "The quick brown fox jumps over the lazy dog.";
     }
     setText(newText);
     setCharacters(newText.split(''));
-  }
+  };
 
   const handleModeChange = (newMode) => {
     if (newMode === currentMode) return;
