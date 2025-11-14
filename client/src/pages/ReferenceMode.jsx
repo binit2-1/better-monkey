@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { calculateWpm, calculateAccuracy, calculateRawWpm } from "../libs/analytics.js";
-import Character from "../components/typing/Character";
+import {
+  calculateWpm,
+  calculateAccuracy,
+  calculateRawWpm,
+} from "../libs/analytics.js";
 import normalSentences from "../quotes/reference/normal.json";
 import biologySentences from "../quotes/reference/biology.json";
 import MenuBar from "../components/MenuBar";
 import MenuTab from "../components/MenuTab";
+import Character from "../components/typing/Character";
+import Caret from "../components/typing/Caret";
 
 const ReferenceMode = () => {
   const inputRef = useRef(null);
@@ -27,14 +32,28 @@ const ReferenceMode = () => {
   const fetchText = (currentMode) => {
     let newText = "";
     if (currentMode === "normal") {
-      if (normalSentences && normalSentences.data && normalSentences.data.length > 0) {
-        newText = normalSentences.data[Math.floor(Math.random() * normalSentences.data.length)].sentence;
+      if (
+        normalSentences &&
+        normalSentences.data &&
+        normalSentences.data.length > 0
+      ) {
+        newText =
+          normalSentences.data[
+            Math.floor(Math.random() * normalSentences.data.length)
+          ].sentence;
       } else {
         newText = "The quick brown fox jumps over the lazy dog.";
       }
     } else if (currentMode === "biology") {
-      if (biologySentences && biologySentences.data && biologySentences.data.length > 0) {
-        newText = biologySentences.data[Math.floor(Math.random() * biologySentences.data.length)].sentence;
+      if (
+        biologySentences &&
+        biologySentences.data &&
+        biologySentences.data.length > 0
+      ) {
+        newText =
+          biologySentences.data[
+            Math.floor(Math.random() * biologySentences.data.length)
+          ].sentence;
       } else {
         newText = "The mitochondria is the powerhouse of the cell.";
       }
@@ -42,13 +61,46 @@ const ReferenceMode = () => {
       newText = "The quick brown fox jumps over the lazy dog.";
     }
     setText(newText);
-    setCharacters(newText.split(''));
+    setCharacters(newText.split(""));
+  };
+  const handleKeyUp = (e) => {
+    if (e.key == "Tab") {
+      setIsTabActive(false);
+    }
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      resetTest();
+    }
+    if (e.key === "Tab") {
+      e.preventDefault();
+      setIsTabActive(true);
+    }
+
+    if (e.key === "Enter" && isTabActive) {
+      e.preventDefault();
+      resetTest();
+    }
+  };
+
+  const resetTest = () => {
+    setUserInput("");
+    setIsTabActive(false);
+    setIsTestActive(false);
+    setShowModal(false);
+    setStartTime(null);
+    setWpm(null);
+    setRawWpm(null);
+    setAccuracy(null);
+    fetchText(currentMode);
+    focusInput();
   };
 
   const handleModeChange = (newMode) => {
     if (newMode === currentMode) return;
     setCurrentMode(newMode);
-    setUserInput('');
+    setUserInput("");
     setIsTabActive(false);
     setIsTestActive(false);
     setShowModal(false);
@@ -60,10 +112,35 @@ const ReferenceMode = () => {
     focusInput();
   };
 
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (!isTestActive && value.length > 0) {
+      setIsTestActive(true);
+      setStartTime(new Date());
+    }
+
+    // guard if characters not loaded yet
+    if (characters.length > 0 && value.length === characters.length) {
+      const endTime = new Date();
+      const calculatedWpm = calculateWpm(text, value, startTime, endTime);
+      const calculatedRawWpm = calculateRawWpm(value, startTime, endTime);
+      const calculatedAccuracy = calculateAccuracy(text, value);
+      setAccuracy(calculatedAccuracy);
+      setRawWpm(calculatedRawWpm);
+      setWpm(calculatedWpm);
+      setIsTestActive(false);
+      setShowModal(true);
+    }
+
+    if (value.length <= characters.length) {
+      setUserInput(value);
+    }
+  };
+
   useEffect(() => {
     fetchText(currentMode);
     focusInput();
-  }, []);
+  }, [currentMode]);
 
   return (
     <div
@@ -88,32 +165,57 @@ const ReferenceMode = () => {
           />
         </MenuBar>
       </div>
-      <div className="flex flex-rows text-[2px] gap-60 font-roboto-mono font-normal">
-        <div className="absolute text-4xl text-text left-57 top-43"> Reference text </div>
-        <div className="w-full max-w-[70vw] whitespace-pre-wrap left-10 leading-25 relative border-4 border-overlay1 rounded-xl p-6">
-          
-            {characters.map((char, index) => {
-               let state = 'pending';
-               const typedChar = userInput[index];
- 
-               if (index < userInput.length) {
-                 state = (typedChar === char) ? 'correct' : 'incorrect';
-               }
- 
-               return (
-                 <Character
-                   key={index}
-                   char={char}
-                   state={state}
-                   isCursorHere={index === userInput.length}
-                   fontSize="text-lg"
-                 />
-               );
-             })}          
+      <div className="w-full flex justify-center items-start gap-6 px-6">
+        {/* LEFT: Reference text (read-only) */}
+        <div className="w-full max-w-[45%] min-w-[300px] min-h-64 whitespace-pre-wrap leading-8 relative border-4 border-overlay1 rounded-xl p-6">
+          <div className="relative -top-18 text-2xl text-text mb-4">Reference text</div>
+          <div className="min-h-64">
+            <div className="flex flex-wrap items-center ">
+            {characters.map((char, index) => (
+              <span key={index} className="relative z-10 text-3xl leading-16  text-text">
+                {char}
+              </span>
+            ))}
+            </div>
           </div>
-          <div className="absolute text-4xl text-text left-296 top-43"> Type here </div>
-          <div className="w-full max-w-[70vw] whitespace-pre-wrap left-10 leading-25 relative border-4 border-overlay1 rounded-xl p-6">
+        </div>
+
+        {/* RIGHT: Typing area (captures input) */}
+        <div className="w-full max-w-[45%] min-w-[300px] min-h-64 whitespace-pre-wrap leading-8 relative border-4 border-overlay1 rounded-xl p-6">
+          <div className="relative -top-18 text-2xl text-text mb-4">Type here</div>
+
+          <div className="min-h-64">
+            <div className="flex flex-wrap items-center">
+              {userInput.split("").map((ch, i) => (
+                <Character
+                  key={`typed-${i}`}
+                  char={ch}
+                  state={characters[i] === ch ? "correct" : "incorrect"}
+                  isCursorHere={false}
+                  fontSize="text-3xl"
+                  spaceClass={"inline-block align-middle w-[1.25ch] mx-1 h-[1em]"}
+                  caretClass={"absolute bottom-0 right-0 w-[0.6ch] h-[1em] bg-yellow"}
+                />
+              ))}
+
+              {/* inline caret at current typing position */}
+              <span className="relative inline-block">
+                <Caret />
+              </span>
+            </div>
           </div>
+
+          {/* Invisible input overlays the panel to capture keystrokes */}
+          <input
+            ref={inputRef}
+            value={userInput}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
+            className="absolute inset-0 w-full h-full opacity-0 focus:outline-none cursor-text"
+            aria-label="reference typing input"
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Caret from "./Caret";
 
-const CaretForSpace = () => {
+const CaretForSpace = ({ caretClass = "absolute bottom-[-15px] right-1 w-[4ch] h-24 bg-yellow" }) => {
   const [blink, setBlink] = useState(true);
 
   useEffect(() => {
@@ -49,38 +49,35 @@ const CaretForSpace = () => {
 
   const handleCaretState = blink ? "animate-blink opacity-100" : "opacity-0";
 
-  return (
-    <div
-      className={`absolute bottom-[-15px] right-1 w-[4ch] h-24 bg-yellow ${handleCaretState}`}
-    />
-  );
+  return <div className={`${caretClass} ${handleCaretState}`} />;
 };
 
-const Character = ({ char, state, isCursorHere, fontSize = "text-7xl" }) => {
+const Character = ({
+  char,
+  state,
+  isCursorHere,
+  fontSize = "text-7xl",
+  spaceClass = "inline-block relative rounded-[50%] w-8 h-8 mx-3",
+  caretClass = "absolute bottom-[-15px] right-1 w-[4ch] h-24 bg-yellow",
+}) => {
   let classes = `z-10 ${fontSize}`;
 
   if (char === " ") {
-    const spaceBase = "inline-block relative rounded-[50%] w-8 h-8 mx-3";
     if (state === "incorrect") {
       return (
         <>
-          <span className={`${spaceBase} bg-red `} aria-hidden="true">
-            
-          </span>
+          <span className={`${spaceClass} bg-red`} aria-hidden="true">{"\u00A0"}</span>
+          <span className="relative">{isCursorHere && <CaretForSpace caretClass={caretClass} />}</span>
         </>
       );
     }
 
     return (
       <>
-        <span className={spaceBase} aria-hidden="true">    
-          {'\u00A0'}
-        </span>
-        <span className="relative">
-          {isCursorHere && <CaretForSpace />}
-        </span>
+        <span className={spaceClass} aria-hidden="true">{"\u00A0"}</span>
+        <span className="relative">{isCursorHere && <CaretForSpace caretClass={caretClass} />}</span>
       </>
-      );
+    );
   }
 
   if (state === "correct") classes += " text-text";
