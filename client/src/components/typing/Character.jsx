@@ -57,7 +57,7 @@ const Character = ({
   state,
   isCursorHere,
   fontSize = "text-7xl",
-  spaceClass = "inline-block relative rounded-[50%] w-8 h-8 mx-3",
+  spaceClass = "inline-block top- relative rounded-[50%] w-8 h-8 mx-3",
   caretClass = "absolute bottom-[-15px] right-1 w-[4ch] h-24 bg-yellow",
 }) => {
   let classes = `z-10 ${fontSize}`;

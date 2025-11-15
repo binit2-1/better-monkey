@@ -22,7 +22,8 @@ const Caret = () => {
           clearTimeout(timeoutId);
           timeoutId = null;
         }
-        setBlink(false);
+        // keep caret visible while typing
+        setBlink(true);
       }
     };
 

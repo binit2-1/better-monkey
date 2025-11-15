@@ -24,6 +24,7 @@ const ReferenceMode = () => {
   const [characters, setCharacters] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [currentMode, setCurrentMode] = useState("normal");
+  const [isFocused, setIsFocused] = useState(false);
 
   const focusInput = () => {
     inputRef.current?.focus();
@@ -194,13 +195,12 @@ const ReferenceMode = () => {
                   isCursorHere={false}
                   fontSize="text-3xl"
                   spaceClass={"inline-block align-middle w-[1.25ch] mx-1 h-[1em]"}
-                  caretClass={"absolute bottom-0 right-0 w-[0.6ch] h-[1em] bg-yellow"}
                 />
               ))}
 
-              {/* inline caret at current typing position */}
-              <span className="relative inline-block">
-                <Caret />
+              {/* Caret placed inline after typed characters — always rendered when focused or test active */}
+              <span className="relative inline-block align-middle text-3xl h-[1em] w-[1ch]">
+                {(isFocused || isTestActive) && <Caret />}
               </span>
             </div>
           </div>
@@ -212,6 +212,8 @@ const ReferenceMode = () => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             onKeyUp={handleKeyUp}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
             className="absolute inset-0 w-full h-full opacity-0 focus:outline-none cursor-text"
             aria-label="reference typing input"
           />
